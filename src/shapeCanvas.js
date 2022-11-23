@@ -1,16 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./imageEditor.css";
 
 const ShapeCanvas = ({ height, width, imageFile, shapePath, onDelete }) => {
   const canvasRef = useRef();
-  const [canMoveShape, setCanMoveShape] = useState(false);
-  const [shapePos, setShapePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    const drawImage = () => {
+    const drawShape = () => {
       const reader = new FileReader();
       reader.readAsDataURL(imageFile);
       reader.onloadend = function (e) {
@@ -31,25 +29,22 @@ const ShapeCanvas = ({ height, width, imageFile, shapePath, onDelete }) => {
       };
     };
 
-    drawImage(canvas, imageFile);
+    drawShape(canvas, imageFile);
   }, [imageFile, width, height, shapePath]);
 
   return (
-    <div
-      className="shape_canvas_container"
-      style={{ top: shapePos.y, left: shapePos.x }}
-      onMouseDown={() => setCanMoveShape(true)}
-      onMouseUp={() => setCanMoveShape(false)}
-      onMouseMove={(e) => {
-        if (canMoveShape) {
-          setShapePos({ x: e.clientX - width, y: e.screenY - height });
-        }
-      }}
-    >
-      <canvas ref={canvasRef} id="shape-canvas" width={width} height={height} />
+    <>
+      <div className="canvases_container">
+        <canvas
+          ref={canvasRef}
+          id="shape-canvas"
+          width={width}
+          height={height}
+        />
+      </div>
 
-      <button onClick={onDelete}>x</button>
-    </div>
+      <button onClick={onDelete}>delete piece</button>
+    </>
   );
 };
 

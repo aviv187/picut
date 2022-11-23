@@ -13,7 +13,9 @@ const DrawCanvas = ({ height, width, getShapePath, isShapeSet }) => {
     if (!canvas) {
       return;
     }
-    return { x: e.pageX - canvas.offsetLeft, y: e.pageY - canvas.offsetTop };
+    const canvasRect = canvas.getBoundingClientRect();
+
+    return { x: e.pageX - canvasRect.left, y: e.pageY - canvasRect.top };
   };
 
   const onMouseMoveOnCanvas = useCallback(

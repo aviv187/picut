@@ -1,0 +1,56 @@
+.images_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 20px;
+}
+
+.image_tile {
+  border: 1px solid lightgray;
+  border-radius: 24px;
+  width: 200px;
+  height: 150px;
+  margin: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.image_tile:hover {
+  transform: scale(1.1);
+}
+
+img {
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.add_button_container {
+  position: fixed;
+  top: 20px;
+  right: 10px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: palevioletred;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+}
+
+.delete_button {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  cursor: pointer;
+  background-color: crimson;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}

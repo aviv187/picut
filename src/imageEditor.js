@@ -18,6 +18,9 @@ const ImageEditor = ({ imageFile }) => {
 
   return (
     <div>
+      <h1>Please draw a path to create a puzzle piece</h1>
+      <br />
+
       <div className="canvases_container">
         <ImageCanvas imageFile={imageFile} getCanvasSize={getCanvasSize} />
         {canvasSize && (
@@ -28,8 +31,11 @@ const ImageEditor = ({ imageFile }) => {
             isShapeSet={!!shapePath}
           />
         )}
+      </div>
 
-        {canvasSize && shapePath && (
+      {canvasSize && shapePath && (
+        <>
+          <br />
           <ShapeCanvas
             height={canvasSize.height}
             width={canvasSize.width}
@@ -37,8 +43,8 @@ const ImageEditor = ({ imageFile }) => {
             shapePath={shapePath}
             onDelete={() => setShapePath(null)}
           />
-        )}
-      </div>
+        </>
+      )}
     </div>
   );
 };

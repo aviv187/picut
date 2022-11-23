@@ -1,13 +1,15 @@
 .canvases_container {
   position: relative;
+  width: fit-content;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  box-shadow: rgb(0 0 0 / 10%) 0px 1px 20px 0px;
+  border-radius: 32px;
+  margin: auto;
 }
 
 .draw_canvas {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.shape_canvas_container {
-  position: fixed;
 }
