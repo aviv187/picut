@@ -1,0 +1,13 @@
+.canvases_container {
+  position: relative;
+}
+
+.draw_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.shape_canvas_container {
+  position: fixed;
+}
